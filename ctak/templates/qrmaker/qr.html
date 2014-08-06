@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% block title %}
+二佢老母個維碼
+{% endblock %}
+{% block content %}
+<form enctype="multipart/form-data" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+<p><a href="{% url 'qrlist' %}">See What They've Maked</a></p>
+{% endblock %}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+       
+  </head>
+  <body>
+  	<style> 
+@font-face
+{
+font-family: myFirstFont;
+src : url("{{STATIC_URL}}bousou/fonts/fuuon.ttf");
+}
+
+
+</style>
+  	<nav class="navbar navbar-default" role="navigation">
+   <div class="navbar-header">
+      <a class="navbar-brand" href="#">篤傻蟹搵嘢反</a>
+   </div>
+   
+   <div>
+      <ul class="nav navbar-nav">      
+         
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               Kihara 
+               <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="{% url 'bousou' %}">暴走文字</a></li>
+               <li class="divider"></li>
+               <li><a href="#">睇傻蟹</a></li>
+            </ul>
+         </li>
+         
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               966 
+               <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="{% url 'createqr' %}">二維碼生成</a></li>
+               <li class="divider"></li>
+               <li><a href="#">睇傻蟹</a></li>
+            </ul>
+         </li>
+         
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               方丈
+               <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="#">卯嘢反</a></li>
+               <li class="divider"></li>
+               <li><a href="#">睇傻蟹</a></li>
+            </ul>
+         </li>
+         
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               真小du
+               <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="#">卯嘢反</a></li>
+               <li class="divider"></li>
+               <li><a href="#">睇傻蟹</a></li>
+            </ul>
+         </li>
+         
+         <li class="active"><a href="{% url 'home' %}">返歸</a></li>
+      </ul>
+   </div>
+   </nav>
+    <h1 style="text-align: center;font-family:myFirstFont;font-size:500%" >{% block title %}{% endblock %}</h1>
+
+    {% block menu %}{% endblock %}
+
+    {% block content %}
+
+	{% endblock %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

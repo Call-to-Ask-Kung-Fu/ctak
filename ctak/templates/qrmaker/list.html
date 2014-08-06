@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+以前人地整過
+{% endblock %}
+{% block content %}
+
+{% for item in items %}
+    <li><a href="/966/qr/{{ item.id }}/">{{ item.input }}</a></li>
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if items.has_previous %}
+            <a href="?page={{ items.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ items.number }} of {{ items.paginator.num_pages }}.
+        </span>
+
+        {% if items.has_next %}
+            <a href="?page={{ items.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+<a href="{% url 'home' %}">home</a>
+{% endblock %}
