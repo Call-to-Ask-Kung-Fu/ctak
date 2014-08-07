@@ -6,8 +6,6 @@
 
 
 <head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
-/jquery/1.4.0/jquery.min.js"></script>
 <script type="text/javascript">
 var bousou={
 "a":"亞阿悪愛",
@@ -193,7 +191,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-  $(".kanjiselect").live("change",function(){
+  $(document).on("change",function(){
    $("#list2").html(showkanji())
   });
 });
@@ -207,6 +205,6 @@ $(document).ready(function(){
 
 Enter Romaji: <input class="field" type="text" /><br />
 List:<form id="list"></form><br />
-List2:<div id="list2" style="font-family:myFirstFont;font-size:500%"><br /></div>
+List2:<div id="list2" style="font-family:myFirstFont;font-size:800%"><br /></div>
 </body>
 {% endblock %}
