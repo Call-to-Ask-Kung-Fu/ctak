@@ -16,20 +16,15 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
        
-  </head>
-  <body>
-  	<style> 
-@font-face
-{
-font-family: myFirstFont;
-src : url("{{STATIC_URL}}bousou/fonts/fuuon.ttf");
-}
+</head>
+<body style = "background-color: #000000;">
 
 
-</style>
-  	<nav class="navbar navbar-default" role="navigation">
+
+
+<nav class="navbar navbar-default" role="navigation" style = "background-color: #FF8B3D;">
    <div class="navbar-header">
-      <a class="navbar-brand" href="#">篤傻蟹搵嘢反</a>
+      <a class="navbar-brand" href="#" style="color:fontcolor">篤傻蟹搵嘢反</a>
    </div>
    
    <div>
@@ -40,8 +35,8 @@ src : url("{{STATIC_URL}}bousou/fonts/fuuon.ttf");
                Kihara 
                <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
-               <li><a href="{% url 'bousou' %}">暴走文字</a></li>
+            <ul class="dropdown-menu" >
+               <li style ="background-color: #FF8B3D;"><a href="{% url 'bousou' %}">暴走文字</a></li>
                <li class="divider"></li>
                <li><a href="#">睇傻蟹</a></li>
             </ul>
@@ -83,20 +78,32 @@ src : url("{{STATIC_URL}}bousou/fonts/fuuon.ttf");
             </ul>
          </li>
          
-         <li class="active"><a href="{% url 'home' %}">返歸</a></li>
+         <li><a href="{% url 'home' %}">返歸</a></li>
+      
       </ul>
    </div>
    </nav>
-    <h1 style="text-align: center;font-family:myFirstFont;font-size:500%" >{% block title %}{% endblock %}</h1>
-
+   
+<div class="container" style = "background-color: #eec133;text-align:center">
+    <b style="font-size:500%" >{% block title %}{% endblock %}</b>
+<br />
     {% block menu %}{% endblock %}
 
     {% block content %}
 
 	{% endblock %}
+	
+<b style="font-size:300%">
+{% block foot %}	
+{% endblock %}
+</b>
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{STATIC_URL}}js/jquery.min.js"></script>
     <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+   
+</div>
   </body>
 </html>
