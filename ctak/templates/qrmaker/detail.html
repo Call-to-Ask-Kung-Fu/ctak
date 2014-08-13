@@ -9,12 +9,7 @@
 {% else %}
 {% endif %}
 <p>碼：<img src="{{ item.qrmaked.url }}" alt="My image"/></p>
-
-<script type="text/javascript">
-function goBack()
-  {window.history.go(-1)}  
-</script>
-<input type="button" value="Back" onclick="GoBack()" />
-
+{% endblock %}
+{% block foot %}
 <a href="{% url 'qrlist' %}">See What They Maked</a>
 {% endblock %}

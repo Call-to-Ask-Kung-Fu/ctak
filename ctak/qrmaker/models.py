@@ -82,3 +82,5 @@ class QR(models.Model):
     def save(self):
         make_qr(self)
         super(QR, self).save()
+    def __unicode__(self):
+        return self.input

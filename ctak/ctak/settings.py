@@ -22,9 +22,8 @@ SECRET_KEY = '-qwiw(u87z#xcazi6659z2320pp$n!@)4bgjf7+&=r=-1#e0fc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = False
+ALLOWED_HOSTS = ['kururu.mmclock.cn']
 
 
 # Application definition
@@ -83,7 +82,7 @@ USE_TZ = True
 
 
 
-MEDIA_ROOT = '/Users/kururu/djcodes/ctak/media'
+MEDIA_ROOT = (os.path.join(BASE_DIR, "media"))
 STATIC_ROOT = None
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 MEDIA_URL = '/media/'
