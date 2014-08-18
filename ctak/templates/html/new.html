@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% block title %}
+上傳新作
+{% endblock %}
+{% block content %}
+<form enctype="multipart/form-data" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}
+{% block foot %}
+<p><a href="{% url 'htmllist' %}">睇人做過乜</a></p>
+<p><a href="{% url 'projectmanage' %}">睇下刪啲乜</a></p>
+{% endblock %}

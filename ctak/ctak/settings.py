@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'qrmaker',
     'bousoukanji',
+    'html',
+    'account',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,8 +86,8 @@ USE_TZ = True
 
 MEDIA_ROOT = (os.path.join(BASE_DIR, "media"))
 STATIC_ROOT = None
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), MEDIA_ROOT)
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), MEDIA_ROOT)
 EMAIL_HOST = 'localhost'

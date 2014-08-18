@@ -1,0 +1,16 @@
+{% extends "base/base.html" %}
+{% block content %}
+<h1>昵称：{{ item.nickname }}</h1>
+{% if avatar %}
+<img src="{{ avatar.thumb1.url }}" alt="My image" height="200"/><br />
+<a href="/account/newavatar/">上传新头像</a>  
+{% else %}
+<a href="/account/newavatar/">上传新头像</a>
+{% endif %}
+<p>生日：{{ item.birthday }}</p>
+<p>性别：{{ item.sex }}</p>
+<p>邮箱：{{ item.email }}</p>
+<p>电话：{{ item.phone_number }}</p>
+<p>自我介绍：{{ item.introduction }}</p>
+<a href="{% url 'add_profile' %}">更新個人信息</a>
+{% endblock %}

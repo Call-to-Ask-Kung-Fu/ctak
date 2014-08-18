@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+邊啲唔要自己刪鳩咗佢
+{% endblock %}
+{% block content %}
+
+{% for item in items %}
+    <li><pre><a href="/html/{{ item.id }}/">{{ item.projectname }}</a> <a href="/html/{{ item.id }}/delete">刪鳩佢？</a></pre></li>
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if items.has_previous %}
+            <a href="?page={{ items.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ items.number }} of {{ items.paginator.num_pages }}.
+        </span>
+
+        {% if items.has_next %}
+            <a href="?page={{ items.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
