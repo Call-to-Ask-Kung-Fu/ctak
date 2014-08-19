@@ -7,6 +7,18 @@
 {{ form.as_p }}
 <input type="submit" value="Submit" />
 </form>
+
+<div>
+	<pre>
+		<code>
+    <b style="font-size: 200%">使用說明</b>：
+	在本地執行成功後，在html文件中的靜態文件路徑前添加靜態文件標籤{{STATIC_PATH}}。
+	例：使用前：deallay/dealdeallay.html;使用後:{{STATIC_PATH}}deallay/dealdeallay.html,不須斜杠不須頂格。
+	js中引用媒體文件的位置無法直接加此標籤，可在html文件中設置變量并在js文件中相應位置引用。
+	所有靜態文件（包括CSS，JS，媒體文件）按照原結構打包成一個.zip文件上傳。
+        </code>
+    </pre>
+</div>
 {% endblock %}
 {% block foot %}
 <p><a href="{% url 'htmllist' %}">睇人做過乜</a></p>

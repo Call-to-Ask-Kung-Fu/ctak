@@ -1,4 +1,4 @@
-<ul class="nav nav-pills pull-right" style="background-color: #F69C3A">
+<ul class="nav nav-pills pull-right" style="background-color: #F69C3A;">
 	{% if user.is_authenticated %}	
 	<li>		
 		<a href="{% url 'producer_info' %}" class="navbar-brand">早晨，{{ user.producer.nickname }}！</a>
@@ -50,4 +50,4 @@
 	
 	<li><a href="{% url 'home' %}">回到首頁</a></li>
 </ul>
-<h3 class=text-danger>打電話問功夫</h3>
+<h3 class=text-danger style="padding-left: 25px;">打電話問功夫</h3>

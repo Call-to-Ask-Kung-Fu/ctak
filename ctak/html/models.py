@@ -12,7 +12,7 @@ class Project(models.Model):
     owner = models.ForeignKey(User)
     projectname = models.CharField(max_length=50)
     template_file = models.FileField(upload_to=HTML_PATH)
-    static_zip = models.FileField(upload_to=STATIC_PATH, null=True)
+    static_zip = models.FileField(upload_to=STATIC_PATH, null=True, blank=True)
     static_url = models.URLField()
 
     def __unicode__(self):
@@ -20,8 +20,8 @@ class Project(models.Model):
 
 @receiver(pre_delete, sender=Project)
 def all_delete(sender, instance, **kwargs):
-
     instance.template_file.delete(False)
-    instance.static_zip.delete(False)
-    instance.static_url = 'html/static/%s' % (instance.projectname)
-    shutil.rmtree('%s/%s' % (MEDIA_ROOT, instance.static_url))
+    if instance.static_zip:
+        instance.static_zip.delete(False)
+        instance.static_url = 'html/static/%s' % (instance.projectname)
+        shutil.rmtree('%s/%s' % (MEDIA_ROOT, instance.static_url))

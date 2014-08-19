@@ -21,10 +21,11 @@ def new_project(request):
             else:
                 project = form.save(commit=False)
                 project.owner = request.user
-                project.static_url = 'html/static/%s' % (project.projectname)
+                if project.static_zip:
+                    project.static_url = 'html/static/%s' % (project.projectname)
+                    sta = ZipFile('%s/%s' % (MEDIA_ROOT, project.static_zip))
+                    ZipFile.extractall(sta, '%s/%s' % (MEDIA_ROOT, project.static_url))
                 project.save()
-                sta = ZipFile('%s/%s' % (MEDIA_ROOT, project.static_zip))
-                ZipFile.extractall(sta, '%s/%s' % (MEDIA_ROOT, project.static_url))
                 return HttpResponseRedirect('%s/' % project.id)
     else: form = ProjectForm()
     return render(request, 'html/new.html', {'form': form})
