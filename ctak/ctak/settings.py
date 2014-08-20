@@ -36,9 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'qrmaker',
-    'bousoukanji',
     'html',
     'account',
+    'ctak',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,15 +1,13 @@
 {% extends "base/base.html" %}
 
 {% block title %}
-以前人地整過
+邊啲唔要自己刪鳩咗佢
 {% endblock %}
 {% block content %}
-<ul class="list-group" style="max-width: 400px;">
+
 {% for item in items %}
-    <li class="list-group-item" style="background-color: #CA9B76"><a href="/html/{{ item.id }}/">{{ item.projectname }}</a> by <a href="/html/producer/{{ item.owner.producer.id }}/">{{ item.owner }}</a></li>
-    
+    <li><pre><a href="/html/{{ item.id }}/">{{ item.project }}</a> <a href="/ctak/{{ item.id }}/delete">刪鳩佢？</a></pre></li>
 {% endfor %}
-</ul>
 <div class="pagination">
     <span class="step-links">
         {% if items.has_previous %}
@@ -25,8 +23,4 @@
         {% endif %}
     </span>
 </div>
-{% endblock %}
-
-{% block foot %}
-<a href="{% url 'newproject' %}">唔啱自己又做呀笨！</a>
 {% endblock %}

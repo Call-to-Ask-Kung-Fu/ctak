@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from .models import QR
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from ctak.contexts import navcontext
+from django.template import RequestContext
 
 def Create(request):
     if request.method == 'POST':
@@ -11,11 +13,11 @@ def Create(request):
             qr = form.save()
             return HttpResponseRedirect('%s/' % qr.id)
     else: form = QRForm()
-    return render(request, 'qrmaker/qr.html', {'form': form})
+    return render(request, 'qrmaker/qr.html', {'form': form}, context_instance=RequestContext(request, processors=[navcontext]))
 
 def detail(request, qr_id):
     item = get_object_or_404(QR, pk=qr_id)
-    return render(request, 'qrmaker/detail.html', {'item': item})
+    return render(request, 'qrmaker/detail.html', {'item': item}, context_instance=RequestContext(request, processors=[navcontext]))
 
 def listshow(request):
     list1 = QR.objects.all() [:]  # .order_by('-pub_date')[:5]
@@ -30,6 +32,6 @@ def listshow(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         items = paginator.page(paginator.num_pages)
     context = {'items': items}
-    return render(request, 'qrmaker/list.html', context)
+    return render(request, 'qrmaker/list.html', context, context_instance=RequestContext(request, processors=[navcontext]))
 
 # Create your views here.

@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+{% block content %}
+<h1>昵称：{{ item.nickname }}</h1>
+<p>頭像：</p>
+{% if avatar %}
+<img src="{{ avatar.thumb1.url }}" alt="My image" height="200"/><br />
+{% else %}
+<p>樣衰到唔敢見人</p>
+{% endif %}
+<p>生日：{{ item.birthday }}</p>
+<p>性别：{{ item.sex }}</p>
+<p>邮箱：{{ item.email }}</p>
+<p>电话：{{ item.phone_number }}</p>
+<p>自我介绍：{{ item.introduction }}</p>
+{% endblock %}

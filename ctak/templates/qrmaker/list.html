@@ -4,10 +4,11 @@
 以前人地整過
 {% endblock %}
 {% block content %}
-
+<ul class="list-group" style="max-width: 400px;">
 {% for item in items %}
     <li><a href="/966/qr/{{ item.id }}/">{{ item.input }}</a></li>
 {% endfor %}
+</ul>
 <div class="pagination">
     <span class="step-links">
         {% if items.has_previous %}
