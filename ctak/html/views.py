@@ -73,7 +73,7 @@ def listbyp(request, producer_id):
     context = {'items': items, 'producer': item}
     return render(request, 'html/listp.html', context, context_instance=RequestContext(request, processors=[navcontext]))
 
-
+@login_required(login_url='/account/login/')
 class ProjectDelete(DeleteView):
     model = Project
     success_url = reverse_lazy('success')

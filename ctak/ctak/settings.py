@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '-qwiw(u87z#xcazi6659z2320pp$n!@)4bgjf7+&=r=-1#e0fc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = ['kururu.mmclock.cn']
