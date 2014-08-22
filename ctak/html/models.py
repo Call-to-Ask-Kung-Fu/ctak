@@ -14,7 +14,7 @@ class Project(models.Model):
     projectname = models.CharField(max_length=50)
     template_file = models.FileField(upload_to=HTML_PATH)
     static_zip = models.FileField(upload_to=STATIC_PATH, null=True, blank=True)
-    static_url = models.URLField()
+    static_url = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.projectname

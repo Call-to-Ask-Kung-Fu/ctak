@@ -28,9 +28,9 @@ def new_project(request):
                 project.owner = p
                 if project.static_zip:
                     project.static_url = 'html/static/%s' % (project.projectname)
+                    project.save()
                     sta = ZipFile('%s/%s' % (MEDIA_ROOT, project.static_zip))
                     ZipFile.extractall(sta, '%s/%s' % (MEDIA_ROOT, project.static_url))
-                project.save()
                 i = Index(project=project.projectname, owner=p, url='/html/%s/' % project.id, type='html')
                 i.save()
                 return HttpResponseRedirect('%s/' % project.id)
