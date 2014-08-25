@@ -21,7 +21,7 @@ def new_project(request):
         if form.is_valid():
             pn = form.cleaned_data['projectname']
             if Project.objects.filter(projectname=pn).exists():
-                return render(request, 'html/new1.html', {'form': form}, context_instance=RequestContext(request, processors=[navcontext]))
+                return render(request, 'html/new1.html', {'form': form, 'STATIC_PATH':'{{STATIC_PATH}}'}, context_instance=RequestContext(request, processors=[navcontext]))
             else:
                 p = Producer.objects.get(user=request.user)
                 project = form.save(commit=False)
@@ -35,7 +35,7 @@ def new_project(request):
                 i.save()
                 return HttpResponseRedirect('%s/' % project.id)
     else: form = ProjectForm()
-    return render(request, 'html/new.html', {'form': form}, context_instance=RequestContext(request, processors=[navcontext]))
+    return render(request, 'html/new.html', {'form': form, 'STATIC_PATH':'{{STATIC_PATH}}'}, context_instance=RequestContext(request, processors=[navcontext]))
 
 def detail(request, project_id):
     item = get_object_or_404(Project, pk=project_id)
