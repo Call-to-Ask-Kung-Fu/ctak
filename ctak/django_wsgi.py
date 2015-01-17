@@ -1,5 +1,5 @@
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'joe.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ctak.settings'
 
 import django.core.handlers.wsgi
 
